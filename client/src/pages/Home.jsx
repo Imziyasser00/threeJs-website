@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomButton from '../components';
+import CustomButton from '../components/CustomButton';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useSnapshot } from 'valtio';
 import {
@@ -32,7 +32,7 @@ const Home = () => {
                         <CustomButton 
                             type="filled"
                             title="Customize it"
-                            handleClick={() => snap.intro.$ = false}
+                            handleClick={() => state.intro = false}
                             customStyles = "w-fit px-4 py-2.5 font-bold text-sm"
                         />
                     </motion.div>
