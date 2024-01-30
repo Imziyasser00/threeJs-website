@@ -8,7 +8,7 @@ const FilePicker = ({file, setFile, readFile}) => {
           id='file-upload'
           type='file'
           accept='image/*'
-          onChange={(e)=> setFile(r.target.files[0])}
+          onChange={(e)=> setFile(e.target.files[0])}
         />
         <label htmlFor='file-upload' className='filepicker-label  '>
           <div className="text-gray-200">Upload File</div>
