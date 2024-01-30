@@ -30,13 +30,32 @@ const Customizer = () => {
       case "filepicker": return <FilePicker 
       file = {file}
       setFile = {setFile}
+      readFile = {readFile}
       />
       case "aipicker": return <AIPicker />
       default: return null;
     }
   }
   const handleDecals = (type, result) => {
+    const decalType = DecalTypes[type];
+
+    state[decalType.stateProperty] = result;
+
+    if(!activeFilterTab[decalType.filterTab]) {
+      handleActiveFilterTab(decalType.filterTab);
+    }
     
+  }
+  const handleActiveFilterTab = (tabName) => {
+    switch(tabName){
+      case "logoShirt" : state.isLogoTexture = !activeFilterTab[tabName];
+      break;
+      case "stylishShirt" : state.isFullTexture = !activeFilterTab[tabName];
+      break;
+      default :
+      state.isLogoTexture = false;
+      state.isFullTexture = false;
+    }
   }
   const snap = useSnapshot(state);
   const readFile = (type) => {
